@@ -3,7 +3,7 @@
 import connection from "@/lib/db";
 
 export default async function sitemap() {
-  let NEXT_BASE_URL ='https://filmsexhd.com'
+  let NEXT_BASE_URL ='https://sexnew.xyz'
   const [moviesData] = await connection.execute(`SELECT * FROM movies`);
   let movie = [];
   if (moviesData) {
