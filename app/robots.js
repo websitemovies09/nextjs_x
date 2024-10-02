@@ -6,7 +6,7 @@ export default function robots() {
       allow: '/',
       disallow: ['/admin','/private/'],
     },
-    sitemap:`https://filmsexhd.com/sitemap.xml`,
-    host:'https://filmsexhd.com/'
+    sitemap:`https://sexnew.xyz/sitemap.xml`,
+    host:'https://sexnew.xyz/'
   }
 }
