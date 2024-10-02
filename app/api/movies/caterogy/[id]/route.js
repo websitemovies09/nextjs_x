@@ -9,7 +9,7 @@ export async function GET(request,params) {
     const offset = (page - 1) * perPage;
 
     // Lấy giá trị `caterogy_id` từ searchParams
-    const caterogyId = params.params.id;
+    const caterogyId = parseInt(params.params.id)
 
     // Truy vấn để lấy tổng số mục có điều kiện caterogy_id
     const countQuery = `
