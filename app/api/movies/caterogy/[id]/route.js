@@ -2,12 +2,6 @@ import connection from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET(request,params) {
-  // const allowedOrigins = process.env.NEXT_BASE_URL;
-  // const origin = request.nextUrl.origin;
-  // const isAllowed = origin.includes(allowedOrigins);
-  // if (!isAllowed) {
-  //   return NextResponse.json({ message: allowedOrigins }, { status: 403 });
-  // }
   const searchParams = request.nextUrl.searchParams;
   try {
     const page = parseInt(searchParams.get("page")) || 1;

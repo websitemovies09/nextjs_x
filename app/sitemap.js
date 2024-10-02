@@ -37,19 +37,3 @@ export default async function sitemap() {
 
 }
 
-
-// DB_DATABASE	filmtgzj_movies	
-
-// DB_HOST	127.0.0.1	
-
-// DB_PASSWORD	Az142685@	
-
-// DB_USER	filmtgzj_user	
-
-// NEXTAUTH_SECRET	4zG5+kpNHQ7LgVpO3vNnWkFHkKN2tY+7MP9LXthjZ5Q=	
-
-// NEXTAUTH_URL	https://filmsexhd.com/api/auth	
-
-// NEXT_BASE_URL	https://filmsexhd.com	
-
-// SECRET_KEY	4zG5+kpNHQ7LgVpO3vNnWkFHkKN2tY+7MP9LXthjZ5Q=
