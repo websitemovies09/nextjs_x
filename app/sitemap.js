@@ -1,7 +1,7 @@
 // import { fetchcountrys, fetchmoviesData } from "@/lib/fetch";
 
 import connection from "@/lib/db";
-
+export const dynamic = 'force-dynamic';
 export default async function sitemap() {
   let NEXT_BASE_URL ='https://sexnew.xyz'
   const [moviesData] = await connection.execute(`SELECT * FROM movies`);
