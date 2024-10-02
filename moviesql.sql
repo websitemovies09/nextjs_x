@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th10 02, 2024 lúc 05:11 AM
+-- Thời gian đã tạo: Th10 02, 2024 lúc 05:22 AM
 -- Phiên bản máy phục vụ: 10.6.19-MariaDB-cll-lve
 -- Phiên bản PHP: 8.1.28
 
@@ -99,7 +99,7 @@ CREATE TABLE `movies` (
   `video` text NOT NULL,
   `actor_id` text DEFAULT NULL,
   `views` int(11) NOT NULL DEFAULT 12,
-  `source` text NOT NULL DEFAULT 'avdbapi',
+  `source` text NOT NULL,
   `caterogy_id` int(11) NOT NULL,
   `active` int(11) NOT NULL DEFAULT 1,
   `tags_id` text DEFAULT NULL,
