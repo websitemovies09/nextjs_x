@@ -24,6 +24,9 @@ export const metadata = {
     "%s - Phim sex Việt Nam - Xem Phim Sex hay - sex việt",
   },
   description: "Phim sex Việt Nam. Gạ em tập chung phòng gym đi nhà nghỉ. Việt Nam · Gạ em tập chung phòng gym đi nhà nghỉ · Hoa Hậu quốc dân kêu oan vì bán rau sạch. Việt Nam.",
+  verification: {
+    google: "CtSzcB_jS-lVpJrAl5pByn_xD2c0mK8WY7WT0I6CUbg",
+  },
 };
 
 export default function RootLayout({ children }) {
