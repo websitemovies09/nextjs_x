@@ -22,16 +22,15 @@ export async function GET(request,params) {
     const totalPages = Math.ceil(totalCount / perPage);
     
     // Truy vấn dữ liệu
-    let text  =caterogyId ? `AND movies.caterogy_id = ?` : ""
     const query = `
       SELECT movies.*, caterogys.title AS category
       FROM movies
       JOIN caterogys ON movies.caterogy_id = caterogys.id
-      WHERE movies.active = 1 ${text}
+      WHERE movies.active = 1 AND movies.caterogy_id = ${caterogyId}
       ORDER BY movies.id DESC
-      LIMIT ?, ?
+      LIMIT ${offset}, ${perPage}
     `;
-    const [results] = await connection.execute(query, [caterogyId, offset, perPage]);
+    const [results] = await connection.execute(query);
 
     return NextResponse.json(
       { movies: results, totalPages, totalCount, perPage },
