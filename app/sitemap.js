@@ -1,4 +1,4 @@
-// import { fetchcountrys, fetchmoviesData } from "@/lib/fetch";
+
 
 import connection from "@/lib/db";
 

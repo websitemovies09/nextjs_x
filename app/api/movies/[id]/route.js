@@ -4,12 +4,11 @@ import { NextResponse } from "next/server";
 
 
 export async function GET(request, params) {
-  // const allowedOrigins = process.env.NEXT_BASE_URL;
-  // const origin = request.nextUrl.origin;
-  // const isAllowed = origin.includes(allowedOrigins);
-  // if (!isAllowed) {
-  //   return NextResponse.json({ message: allowedOrigins }, { status: 403 });
-  // }
+  const allowedOrigins = ["http://localhost:3000",'https://sexnew.xyz'];
+  const origin = request.nextUrl.origin;
+  if (!allowedOrigins.includes(origin)) {
+    return NextResponse.json({ message: origin }, { status: 403 });
+  }
   try {
     let id = params.params.id;
     const [movies] = await connection.execute(

@@ -14,6 +14,7 @@ export default function Home() {
   function handleNextPage(page){
     setCurrentPage(page)
   }
+
   return (
     <>
       <main className="p-2 bg-gray-800">
