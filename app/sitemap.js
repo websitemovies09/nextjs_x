@@ -33,7 +33,7 @@ export default async function sitemap() {
     priority: 1,
   }));
 
-  return [...routes,...movie,...caterogys];
+  return [...routes,...caterogys];
 
 }
 
