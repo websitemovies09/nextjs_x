@@ -3,15 +3,15 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/:all*(svg|jpg|png|css|js)', // Các loại tài nguyên cần được cache
+        source: "/:all*(svg|jpg|png|css|js)",
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable', // 1 năm, không thay đổi
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },
-    ]
+    ];
   },
   reactStrictMode: false,
   compress: true,
