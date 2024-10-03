@@ -17,6 +17,7 @@ export default function Search() {
   function handleNextPage(page){
     setCurrentPage(page)
   }
+  if (error) return <div>Error occurred: {error.message}</div>;
   return (
     <>
       <main className="p-4 bg-gray-800">
