@@ -7,6 +7,5 @@ export default function robots() {
       disallow: ['/admin'],
     },
     sitemap:`https://sexnew.xyz/sitemap.xml`,
-    host:'https://sexnew.xyz/'
   }
 }
