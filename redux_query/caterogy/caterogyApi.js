@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const caterogyApi = createApi({
   reducerPath: 'caterogyApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }), 
+  baseQuery: fetchBaseQuery({ baseUrl: '/api' }), 
   endpoints: (builder) => ({
     getCaterogys: builder.query({
       query: () => 'caterogys', 
