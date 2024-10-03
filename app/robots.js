@@ -4,7 +4,7 @@ export default function robots() {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin','/private/'],
+      disallow: ['/admin'],
     },
     sitemap:`https://sexnew.xyz/sitemap.xml`,
     host:'https://sexnew.xyz/'
