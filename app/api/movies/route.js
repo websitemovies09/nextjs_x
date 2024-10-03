@@ -2,11 +2,7 @@ import connection from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
-  const allowedOrigins = ["http://localhost:3000",'https://sexnew.xyz'];
-  const origin = request.nextUrl.origin;
-  if (!allowedOrigins.includes(origin)) {
-    return NextResponse.json({ message: origin }, { status: 403 });
-  }
+  
   const searchParams = request.nextUrl.searchParams;
   try {
     const page = parseInt(searchParams.get("page")) || 1;
