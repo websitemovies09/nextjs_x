@@ -1,24 +1,18 @@
 "use client";
-import { getCaterogy } from "@/redux/caterogy/caterogySlice";
+import { useGetCaterogysQuery } from "@/redux_query/caterogy/caterogyApi";
 import Link from "next/link";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "next/navigation";
 import SkeletonNar from "./SkeletonNar";
 
 function Narbar() {
-  const [loading, setLoading] = useState(true);
+
   const params = useParams();
   const type = params.caterogy;
-  const caterogys = useSelector((state) => state.caterogys.lists);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCaterogy()).then(() => setLoading(false));
-  }, [dispatch]);
+  const { data, error, isLoading } = useGetCaterogysQuery();
 
   return (
     <nav className="bg-gray-800 p-2 flex flex-wrap space-x-4">
-      {loading ? (
+      {isLoading ? (
         <SkeletonNar itemCount ={7}/>
       ) : (
         <>
@@ -30,7 +24,7 @@ function Narbar() {
           >
             Trang chủ
           </Link>
-          {caterogys.map((item, index) => {
+          {data?.results?.map((item, index) => {
             return (
               <Link
                 key={index}

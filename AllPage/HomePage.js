@@ -3,21 +3,16 @@ import Heading from "@/components/heading";
 import MoivieItem from "@/components/movieItem";
 import Paginations from "@/components/pagination";
 import Skeleton from "@/components/Skeleton";
-import { getMovies } from "@/redux/movies/moviesSlice";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useGetMoviesQuery } from "@/redux_query/movie/moviesApi";
+import { useState } from "react";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-  const {lists,totalPages} = useSelector((state) => state.movies);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMovies()).then(() => setLoading(false));
-  }, [dispatch]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const { data, error, isLoading} = useGetMoviesQuery(currentPage);
+ 
 
   function handleNextPage(page){
-    dispatch(getMovies({page:page})).then(() => setLoading(false));
+    setCurrentPage(page)
   }
   return (
     <>
@@ -29,17 +24,19 @@ export default function Home() {
         <div className="bg-slate-900 mt-4 p-4">
           <Heading title='PHIM SEX MỚI'/>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-4">
-            {loading ? (
+            {isLoading ? (
               <Skeleton itemCount={15} />
             ) : (
-              lists.map((item) => <MoivieItem key={item.id} item={item} />)
+              data?.movies?.map((item) => <MoivieItem key={item.id} item={item} />)
             )}
           </div>
-           <Paginations pageCount={totalPages} handleNextPage={handleNextPage}/>
+           <Paginations pageCount={data?.totalPages} handleNextPage={handleNextPage}/>
         </div>
-        {/* <Chat/> */}
+        
       </main>
   
     </>
   );
 }
+
+
