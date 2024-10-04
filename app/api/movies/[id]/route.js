@@ -15,7 +15,7 @@ export async function GET(request, params) {
       `SELECT movies.*, caterogys.title AS category 
        FROM movies
        JOIN caterogys ON movies.caterogy_id = caterogys.id
-       WHERE movies.id = ?`, [id]  
+       WHERE movies.id = ${id}` 
     );
 
     return NextResponse.json({ movies }, { status: 200 });

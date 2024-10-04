@@ -33,10 +33,20 @@ export function middleware(request) {
   Object.entries(corsOptions).forEach(([key, value]) => {
     response.headers.set(key, value)
   })
- 
+
+  
+  // **Bổ sung kiểm tra yêu cầu đăng nhập cho trang admin**
+  const { pathname } = request.nextUrl;
+  if (pathname.startsWith('/admin')) {
+    const token = request.cookies.get('tokenadmin');
+    if (!token) {
+      return NextResponse.redirect(new URL('/login', request.url));
+    }
+  }
+
   return response
 }
  
 export const config = {
-  matcher: '/api/:path*',
+ matcher: ['/api/:path*', '/admin/:path*'],
 }

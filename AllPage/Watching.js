@@ -8,8 +8,8 @@ import { useParams } from "next/navigation";
 
 function Watching() {
   const params = useParams();
-  const { data} = useGetMovieDetailQuery(params.id);
-  const { data:moviesRelate, error, isLoading} = useGetMoviesByCaterogyQuery({type: data?.movies[0]?.caterogy_id});
+  const { data } = useGetMovieDetailQuery(params.id);
+  const { data:moviesRelate, isLoading} = useGetMoviesByCaterogyQuery({type: data?.movies[0]?.caterogy_id});
   return (
     <div className=" mx-auto p-1 sm:p-4 bg-gray-800">
       <h1 className="text-white mb-4">{data?.movies[0]?.title}</h1>
@@ -20,6 +20,12 @@ function Watching() {
       <p className="mt-4 text-white">{data?.movies[0]?.description}</p>
 
       <div className="mt-4 flex flex-col justify-center items-center ">
+      <p className="font-bold text-white">
+          #
+          <span className="font-normal text-white">
+            {data?.movies[0]?.id}
+          </span>
+        </p>
         <p className="font-bold text-white">
           Thể loại:{" "}
           <span className="font-normal text-white">

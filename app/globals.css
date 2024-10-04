@@ -23,6 +23,12 @@
   }
 }
 
+.ellipsis {
+  max-width: 150px; /* Đặt chiều rộng tối đa */
+  overflow: hidden; /* Ẩn phần vượt quá */
+  white-space: nowrap; /* Ngăn không cho xuống dòng */
+  text-overflow: ellipsis; /* Hiển thị dấu ba chấm */
+}
 body {
   color: var(--foreground);
   background: var(--background);
