@@ -9,7 +9,7 @@ export const moviesApi = createApi({
       query: (page = 1) => `movies?page=${page}`, // Query to fetch all movies
     }),
     getMoviesByCaterogy: builder.query({
-      query: ({ type, page = 1 }) => `movies/caterogy/${type}?page=${page}`, // Query to fetch movies by category
+      query: ({ type=2, page = 1 }) => `movies/caterogy/${type}?page=${page}`, // Query to fetch movies by category
     }),
     getMoviesBySearch: builder.query({
       query: ({ query, page = 1 }) => `search?q=${query}&page=${page}`, // Query to search movies
