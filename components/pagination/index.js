@@ -65,7 +65,7 @@ export default function Paginations({ totalPages, currentPage, onPageChange }) {
       className={`px-3 py-1 mx-1 rounded-full ${
         page === pageNumber
           ? "bg-blue-600 text-white"
-          : "bg-gray-700 text-gray-400 hover:bg-blue-500 hover:text-white"
+          : "bg-gray-700 text-white	 hover:bg-blue-500 hover:text-white"
       }`}
     >
       {pageNumber}
@@ -82,7 +82,7 @@ export default function Paginations({ totalPages, currentPage, onPageChange }) {
           <button
             onClick={() => handleClick(page > 1 ? page - 1 : 1)}
             disabled={page === 1}
-            className="px-3 py-1 mx-1 bg-gray-700 text-gray-400 rounded-full hover:bg-blue-500 hover:text-white"
+            className="px-3 py-1 mx-1 bg-gray-700 text-white	 rounded-full hover:bg-blue-500 hover:text-white"
           >
             Previous
           </button>
@@ -94,7 +94,7 @@ export default function Paginations({ totalPages, currentPage, onPageChange }) {
               handleClick(page < totalPages ? page + 1 : totalPages)
             }
             disabled={page === totalPages}
-            className="px-3 py-1 mx-1 bg-gray-700 text-gray-400 rounded-full hover:bg-blue-500 hover:text-white"
+            className="px-3 py-1 mx-1 bg-gray-700 text-white	 rounded-full hover:bg-blue-500 hover:text-white"
           >
             Next
           </button>
