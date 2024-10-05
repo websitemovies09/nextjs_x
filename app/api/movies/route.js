@@ -100,7 +100,6 @@ export async function DELETE(request) {
       return NextResponse.json({ message: "Category not found" }, { status: 404 });
     }
   } catch (err) {
-    console.error(err); 
     return NextResponse.error("Error message", 500);
   }
 }
@@ -110,25 +109,22 @@ export async function DELETE(request) {
 
 
 
-// export async function PUT(request) {
-//   try {
-//     const { id, title, thumbnail, video, caterogy_id, source } = await request.json();
-//     if (!id || !title || !thumbnail || !video || !caterogy_id) {
-//       return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
-//     }
-//     const [result] = await connection.execute(
-//       `UPDATE movies 
-//        SET title = ?, thumbnail = ?, video = ?, source = ?, caterogy_id = ?, active = ? 
-//        WHERE id = ?`,
-//       [title, thumbnail, video, source, caterogy_id, 1, id]
-//     );
+export async function PUT(request) {
+  try {
+    const { id, title, thumbnail, video, caterogy_id, source } = await request.json();
+    const [result] = await connection.execute(
+      `UPDATE movies 
+       SET title = ?, thumbnail = ?, video = ?, source = ?, caterogy_id = ?, active = ? 
+       WHERE id = ?`,
+      [title, thumbnail, video, source, caterogy_id, 1, id]
+    );
 
-//     if (result.affectedRows === 1) {
-//       return NextResponse.json({ message: "Movie updated successfully" }, { status: 200 });
-//     } else {
-//       return NextResponse.json({ message: "Movie not found" }, { status: 404 });
-//     }
-//   } catch (err) {
-//     return NextResponse.error("Server error", 500);
-//   }
-// }
+    if (result.affectedRows === 1) {
+      return NextResponse.json({ message: "Movie updated successfully" }, { status: 200 });
+    } else {
+      return NextResponse.json({ message: "Movie not found" }, { status: 404 });
+    }
+  } catch (err) {
+    return NextResponse.error("Server error", 500);
+  }
+}

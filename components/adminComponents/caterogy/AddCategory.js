@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import Cookies from 'js-cookie';
-export default function AddCategory() {
+export default function AddCategory({refetch}) {
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -30,7 +30,8 @@ export default function AddCategory() {
       if (response.ok) {
         const data = await response.json();
         setSuccess(`Category added with ID: ${data.id}`);
-        setTitle(""); // Reset the input field
+        setTitle(""); // Reset the input fiel
+        refetch()
       } else {
         const errorData = await response.json();
         setError(errorData.message || "An error occurred.");
@@ -41,7 +42,7 @@ export default function AddCategory() {
   };
 
   return (
-    <div className="flex justify-center items-center ">
+    <div className="flex justify-center items-center mt-14 h-auto">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-4">Add New Category</h1>
         

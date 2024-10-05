@@ -2,8 +2,8 @@
 import { useGetCaterogysQuery } from "@/redux_query/caterogy/caterogyApi";
 import { useState } from "react";
 import Cookies from "js-cookie";
-function DeleteCategoryForm() {
-  const { data: caterogys, error, isLoading } = useGetCaterogysQuery();
+function DeleteCategoryForm({caterogys,refetch}) {
+  
   const [id, setId] = useState("");
   const [message, setMessage] = useState("");
 
@@ -24,7 +24,8 @@ function DeleteCategoryForm() {
 
       if (response.ok) {
         setMessage("Category deleted successfully!");
-        setId(""); // Reset ID after successful deletion
+        setId("");
+        refetch()
       } else {
         setMessage(`Error: ${data.message}`);
       }

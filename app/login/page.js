@@ -23,7 +23,7 @@ export default function LoginPage() {
         router.push('/');
       }
     } catch (error) {
-      console.log("Đã có lỗi xảy ra. Vui lòng thử lại.", error);
+      alert("Đã có lỗi xảy ra. Vui lòng thử lại.");
     }
   };
 

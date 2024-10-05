@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import AdminCaterogy from "@/components/adminComponents/caterogy";
 import AdminMovie from "@/components/adminComponents/movie";
@@ -16,29 +16,34 @@ function Page() {
   };
 
   return (
-    <div className="p-6 min-h-screen">
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold mb-4 text-white">ADMIN</h2>
-        <div className="flex space-x-4">
-          <button
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200"
-            onClick={handleShowCategory}
-          >
-            Category
-          </button>
-          <button
-            className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-200"
-            onClick={handleShowMovie}
-          >
-            Movie
-          </button>
+    <>
+      <div className='flex justify-center	mb-14 mt-14'>
+        <div className="bg-gray-500 p-10 rounded-lg shadow-lg max-w-md w-full">
+          <h1 className="text-white text-4xl font-bold mb-8 text-center">
+            ADMIN
+          </h1>
+          <div className="grid grid-cols-2 gap-4">
+            <button
+              className="bg-blue-500 text-white py-3 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300 flex items-center justify-center"
+                onClick={handleShowCategory}
+            >
+              <i className="fas fa-list-alt mr-2" />
+              Category
+            </button>
+            <button
+              className="bg-green-500 text-white py-3 rounded-lg shadow-lg hover:bg-green-600 transition duration-300 flex items-center justify-center"
+              onClick={handleShowMovie}
+            >
+              Movie
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Hiển thị <AddCategory /> hoặc <AddMovie /> tùy thuộc vào lựa chọn */}
       {activeComponent === "category" && <AdminCaterogy />}
       {activeComponent === "movie" && <AdminMovie />}
-    </div>
+    </>
   );
 }
 

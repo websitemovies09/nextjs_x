@@ -42,7 +42,7 @@ function MoivieItem({ item }) {
       </div>
       <Image
         alt="Mountains"
-        src={item?.thumbnail}
+        src={imageUrl}
         width={170}
         height={128}
         className="w-full h-28 object-contain md:h-32 image_s"
@@ -50,6 +50,7 @@ function MoivieItem({ item }) {
         style={{
           width: '100%',
         }}
+        onError={(e) => {setImageUrl('https://media.discordapp.net/attachments/1291952724505792514/1291961961667366963/23-677x400.jpg?ex=670200d7&is=6700af57&hm=f429036bc151c64d1c92a7fbb3ac65e588b88cdeb77d2e849b8d2c103771c4b8&=&format=webp')}}
       />
 
       <p className="mt-2 text-white text-sm		line-clamp-1">{item?.title}</p>

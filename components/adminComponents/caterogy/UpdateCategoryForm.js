@@ -1,10 +1,9 @@
 "use client"
-import { useGetCaterogysQuery } from "@/redux_query/caterogy/caterogyApi";
-import { useState } from "react";
 import Cookies from "js-cookie";
+import { useState } from "react";
 
-function UpdateCategoryForm() {
-  const { data: caterogys, error, isLoading } = useGetCaterogysQuery();
+function UpdateCategoryForm({caterogys,refetch}) {
+ 
   const [id, setId] = useState("");
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
@@ -26,6 +25,7 @@ function UpdateCategoryForm() {
 
       if (response.ok) {
         setMessage("Category updated successfully!");
+        refetch()
       } else {
         setMessage(`Error: ${data.message}`);
       }
