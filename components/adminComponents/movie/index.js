@@ -1,9 +1,9 @@
 import Paginations from "@/components/pagination";
 import { useGetMoviesQuery } from "@/redux_query/movie/moviesApi";
-import { useState } from "react";
 import axios from "axios";
-import AddMovie from "./AddMovie";
 import Cookies from "js-cookie";
+import { useState } from "react";
+import AddMovie from "./AddMovie";
 import UpdateMovie from "./UpdateMovie";
 function AdminMovie() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -100,15 +100,15 @@ function AdminMovie() {
                   <td className="px-6 py-4 ellipsis">{item.caterogy_id}</td>
                   <td className="px-6 py-4 ellipsis">{item.source}</td>
                   <td className="px-6 py-4 ellipsis">{item.views}</td>
-                  
                 </tr>
               );
             })}
           </tbody>
         </table>
         <Paginations
-          pageCount={data?.totalPages}
-          handleNextPage={handleNextPage}
+          totalPages={data?.totalPages}
+          currentPage={currentPage}
+          onPageChange={handleNextPage}
         />
       </div>
     </>
