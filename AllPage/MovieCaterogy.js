@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 export default function MovieCaterogy() {
   const [currentPage, setCurrentPage] = useState(1);
   const params = useParams();
-  const { data, error, isLoading} = useGetMoviesByCaterogyQuery({type: params.caterogy,page:currentPage});
+  const { data, isLoading} = useGetMoviesByCaterogyQuery({type: params.caterogy,page:currentPage});
   const { data:categorys,  } = useGetCaterogysQuery();
   const [heading, setHeading] = useState("");
   function handleNextPage(page) {
@@ -39,7 +39,11 @@ export default function MovieCaterogy() {
               data?.movies?.map((item) => <MoivieItem key={item.id} item={item} />)
             )}
           </div>
-          <Paginations pageCount={data?.totalPages} handleNextPage={handleNextPage} />
+          <Paginations
+            totalPages={data?.totalPages}
+            currentPage={currentPage}
+            onPageChange={handleNextPage}
+          />
         </div>
       </main>
     </>

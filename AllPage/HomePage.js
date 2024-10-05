@@ -8,11 +8,10 @@ import { useState } from "react";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
-  const { data, error, isLoading} = useGetMoviesQuery(currentPage);
- 
+  const { data, isLoading } = useGetMoviesQuery(currentPage);
 
-  function handleNextPage(page){
-    setCurrentPage(page)
+  function handleNextPage(page) {
+    setCurrentPage(page);
   }
 
   return (
@@ -23,21 +22,23 @@ export default function Home() {
           <h1 className="text-white	">Phim Sex Hay</h1>
         </div>
         <div className="bg-slate-900 mt-4 p-4">
-          <Heading title='PHIM SEX MỚI'/>
+          <Heading title="PHIM SEX MỚI" />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-4">
             {isLoading ? (
               <Skeleton itemCount={15} />
             ) : (
-              data?.movies?.map((item) => <MoivieItem key={item.id} item={item} />)
+              data?.movies?.map((item) => (
+                <MoivieItem key={item.id} item={item} />
+              ))
             )}
           </div>
-           <Paginations pageCount={data?.totalPages} handleNextPage={handleNextPage}/>
+          <Paginations
+            totalPages={data?.totalPages}
+            currentPage={currentPage}
+            onPageChange={handleNextPage}
+          />
         </div>
-        
       </main>
-  
     </>
   );
 }
-
-

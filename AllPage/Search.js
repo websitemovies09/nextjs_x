@@ -13,7 +13,7 @@ export default function Search() {
   const [currentPage, setCurrentPage] = useState(1);
   const searchParams = useSearchParams()
   const query = searchParams.get('query')
-  const { data, error, isLoading} = useGetMoviesBySearchQuery({query:query,page:currentPage});
+  const { data, isLoading} = useGetMoviesBySearchQuery({query:query,page:currentPage});
   function handleNextPage(page){
     setCurrentPage(page)
   }
@@ -35,7 +35,11 @@ export default function Search() {
             
           </div>
 
-          <Paginations pageCount={data?.totalPages} handleNextPage={handleNextPage}/>
+          <Paginations
+            totalPages={data?.totalPages}
+            currentPage={currentPage}
+            onPageChange={handleNextPage}
+          />
         </div>
       </main>
     </>
