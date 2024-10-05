@@ -25,7 +25,7 @@ export default function Paginations({ totalPages, currentPage, onPageChange }) {
       // Thêm dấu "..." nếu trang hiện tại > 4
       if (page > 4) {
         pages.push(
-          <span key="start-dots" className="mx-2">
+          <span key="start-dots" className="mx-2 text-white">
             ...
           </span>
         );
