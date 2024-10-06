@@ -1,10 +1,11 @@
 "use client";
+import { useState } from "react";
 import Heading from "@/components/heading";
 import MoivieItem from "@/components/movieItem";
 import Paginations from "@/components/pagination";
 import Skeleton from "@/components/Skeleton";
 import { useGetMoviesQuery } from "@/redux_query/movie/moviesApi";
-import { useState } from "react";
+
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);

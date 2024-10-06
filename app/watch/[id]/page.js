@@ -9,6 +9,9 @@ export async function generateMetadata({ params }) {
   if (movie) {
     return {
       title: movie.movies[0].title,
+      openGraph: {
+        images: [ movie.movies[0].thumbnail],
+      },
     };
   }
   

@@ -1,22 +1,22 @@
 "use client";
-import { useRouter } from "next/navigation";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 function MoivieItem({ item }) {
   const router = useRouter();
 
   const [imageUrl, setImageUrl] = useState(item?.thumbnail || "");
 
-  useEffect(() => {
-    if (imageUrl) {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = imageUrl;
-      document.head.appendChild(link);
-    }
-  }, [imageUrl]);
+  // useEffect(() => {
+  //   if (imageUrl) {
+  //     const link = document.createElement("link");
+  //     link.rel = "preload";
+  //     link.as = "image";
+  //     link.href = imageUrl;
+  //     document.head.appendChild(link);
+  //   }
+  // }, [imageUrl]);
 
   function handloWatchTV() {
     router.push(`/watch/${item.id}`);
