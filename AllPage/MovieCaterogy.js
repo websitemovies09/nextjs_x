@@ -18,6 +18,10 @@ export default function MovieCaterogy() {
   const [heading, setHeading] = useState("");
   function handleNextPage(page) {
     setCurrentPage(page)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
   useEffect(() => {
     setHeading(categorys?.results?.find((item) => item.id == params.caterogy)?.title || "");

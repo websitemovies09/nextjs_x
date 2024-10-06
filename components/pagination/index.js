@@ -96,7 +96,7 @@ export default function Paginations({ totalPages, currentPage, onPageChange }) {
             disabled={page === totalPages}
             className="px-3 py-1 mx-1 bg-gray-700 text-white	 rounded-full hover:bg-blue-500 hover:text-white"
           >
-            Next
+           Next
           </button>
         </div>
       )}

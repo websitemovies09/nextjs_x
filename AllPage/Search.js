@@ -16,6 +16,10 @@ export default function Search() {
   const { data, isLoading} = useGetMoviesBySearchQuery({query:query,page:currentPage});
   function handleNextPage(page){
     setCurrentPage(page)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
   return (
     <>
