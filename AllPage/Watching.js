@@ -3,28 +3,38 @@
 import Heading from "@/components/heading";
 import MoivieItem from "@/components/movieItem";
 import Skeleton from "@/components/Skeleton";
-import { useGetMovieDetailQuery, useGetMoviesByCaterogyQuery } from "@/redux_query/movie/moviesApi";
+import {
+  useGetMovieDetailQuery,
+  useGetMoviesByCaterogyQuery,
+} from "@/redux_query/movie/moviesApi";
 import { useParams } from "next/navigation";
 
 function Watching() {
   const params = useParams();
   const { data } = useGetMovieDetailQuery(params.id);
-  const { data:moviesRelate, isLoading} = useGetMoviesByCaterogyQuery({type: data?.movies[0]?.caterogy_id});
+  const { data: moviesRelate, isLoading } = useGetMoviesByCaterogyQuery({
+    type: data?.movies[0]?.caterogy_id,
+  });
   return (
     <div className=" mx-auto p-1 sm:p-4 bg-gray-800">
+      <div className=" w-full bg-yellow-500 text-black p-1 z-50 mb-4">
+        <div className="container mx-auto">
+          <p className="font-semibold text-center">
+            Vui lòng tắt trình chặn quảng cáo để tiếp tục sử dụng trang web.
+          </p>
+        </div>
+      </div>
+
       <h1 className="text-white mb-4">{data?.movies[0]?.title}</h1>
 
-       <div className="responsive-iframe w-full sm:w-4/5 mx-auto	">
+      <div className="responsive-iframe w-full sm:w-4/5 mx-auto	">
         <iframe src={data?.movies[0]?.video} allowFullScreen />
-      </div> 
+      </div>
       <p className="mt-4 text-white">{data?.movies[0]?.description}</p>
 
       <div className="mt-4 flex flex-col justify-center items-center ">
-      <p className="font-bold text-white">
-          #
-          <span className="font-normal text-white">
-            {data?.movies[0]?.id}
-          </span>
+        <p className="font-bold text-white">
+          #<span className="font-normal text-white">{data?.movies[0]?.id}</span>
         </p>
         <p className="font-bold text-white">
           Thể loại:{" "}
@@ -44,7 +54,9 @@ function Watching() {
           {isLoading ? (
             <Skeleton itemCount={15} />
           ) : (
-            moviesRelate?.movies?.map((item) => <MoivieItem key={item.id} item={item} />)
+            moviesRelate?.movies?.map((item) => (
+              <MoivieItem key={item.id} item={item} />
+            ))
           )}
         </div>
       </div>

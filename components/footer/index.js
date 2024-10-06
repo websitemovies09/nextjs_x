@@ -75,10 +75,57 @@ function Footer() {
               👩🏿‍🤝‍👩🏽 Người đang online : {onlineUsers}
             </p>
           </div>
+          <div className="mb-6 md:mb-0">
+            <h3 className="text-white font-bold	text-yellow-400 text-lg">
+              Trải Nghiệm Giải Trí Dành Riêng Cho Người Trưởng Thành
+            </h3>
+            <p className="mb-4 text-white text-sm		">
+              Chào mừng bạn đến với trang web giải trí chuyên biệt dành cho
+              người trên 18 tuổi, nơi mang đến những bộ phim chất lượng cao được
+              chọn lọc kỹ càng. Với kho tàng phong phú bao gồm các thể loại đa
+              dạng, từ tình cảm lãng mạn đến những câu chuyện đầy cảm xúc, chúng
+              tôi cam kết mang đến cho bạn trải nghiệm điện ảnh độc đáo, mới mẻ
+              và không kém phần hấp dẫn.
+            </p>
+          </div>
+          <div className="mb-6 md:mb-0">
+            <h3 className="text-white font-bold	text-yellow-400 text-lg">An Toàn & Bảo Mật</h3>
+            <p className="mb-4 text-white text-sm		">
+              Sự an toàn của bạn là ưu tiên hàng đầu của chúng tôi. Chính vì
+              vậy, mọi nội dung trên trang web đều được kiểm duyệt kỹ lưỡng để
+              tuân thủ các quy định về pháp luật và an toàn thông tin. Chúng tôi
+              bảo vệ quyền riêng tư của bạn với các công nghệ bảo mật tiên tiến,
+              đảm bảo dữ liệu cá nhân và thói quen xem phim của bạn luôn được
+              bảo vệ tối đa.
+            </p>
+          </div>
+          <div className="mb-6 md:mb-0">
+            <h3 className="text-white font-bold	text-yellow-400 text-lg">Trải Nghiệm Đỉnh Cao</h3>
+            <p className="mb-4 text-white text-sm		">
+              Đến với trang web, bạn sẽ được tận hưởng những bộ phim với chất
+              lượng hình ảnh sắc nét, âm thanh sống động, mang lại trải nghiệm
+              giải trí vượt trội. Với giao diện thân thiện và dễ sử dụng, chúng
+              tôi đảm bảo bạn sẽ có những phút giây thư giãn thoải mái nhất. Dù
+              là trên máy tính, điện thoại hay máy tính bảng, bạn đều có thể dễ
+              dàng truy cập vào kho phim phong phú của chúng tôi.
+            </p>
+          </div>
+          <div className="mb-6 md:mb-0">
+            <h3 className="text-white font-bold	text-yellow-400 text-lg">
+              Giới Hạn Độ Tuổi & Trách Nhiệm Người Dùng
+            </h3>
+            <p className="mb-4 text-white text-sm		">
+              Chúng tôi cam kết chỉ cung cấp nội dung giải trí cho những người
+              dùng trên 18 tuổi, và mọi người cần xác nhận độ tuổi trước khi
+              truy cập. Đây là không gian dành riêng cho người trưởng thành, và
+              chúng tôi luôn khuyến khích người dùng tuân thủ trách nhiệm cá
+              nhân khi tham gia các hoạt động giải trí trực tuyến.
+            </p>
+          </div>
         </div>
       </div>
       {/*Copyright section*/}
-      <div className="w-full bg-black/5 p-4 text-center text-white">
+      <div className="w-full bg-black/5 p-4 text-center text-white ">
         © 2023 Copyright:
         <a href="https://sexnew.xyz/">SEXNEW.XYZ</a>
       </div>

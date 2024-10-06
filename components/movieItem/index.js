@@ -46,7 +46,6 @@ function MoivieItem({ item }) {
         width={170}
         height={128}
         className="w-full h-28 object-contain md:h-32 image_s"
-        priority
         style={{
           width: '100%',
         }}
