@@ -10,8 +10,8 @@ import { useState } from "react";
 
 
 export default function Search() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const searchParams = useSearchParams()
+  const searchParams =useSearchParams()
+  const [currentPage, setCurrentPage] = useState( 1);
   const query = searchParams.get('query')
   const { data, isLoading} = useGetMoviesBySearchQuery({query:query,page:currentPage});
   function handleNextPage(page){
