@@ -4,19 +4,18 @@ import Narbar from "@/components/narbar";
 import ProviderRedux from "./ProviderRedux";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-
+import Script from "next/script";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
-  display: 'swap',
+  display: "swap",
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
-  display: 'swap',
-
+  display: "swap",
 });
 
 export const metadata = {
@@ -36,14 +35,45 @@ export const metadata = {
       " Tuyển chọn phim sex Việt Nam hay đỉnh chóp, xem online chất lượng HD không giật lag. Xem phim jav hd online miễn phí nhanh chất lượng cao full HD 1080p 2024, xem phim sex hay full hd không che diễn viên đẹp. Phim jav tuyển chọn nội dung hay và kích thích nhất.",
     type: "website",
   },
-  keywords: ["sex viêt", "sẽ viet nam", "sex jav", "jav", "phim sẽ","sex and the city cast","sex offender registry","sex offenders near me","sexy red lip gloss","sex china","chin av","sẽ china","sextop1","javhd","sexviet","viet69","clipsex69","cliphot","sexnew"],
-  
+  keywords: [
+    "sex viêt",
+    "sẽ viet nam",
+    "sex jav",
+    "jav",
+    "phim sẽ",
+    "sex and the city cast",
+    "sex offender registry",
+    "sex offenders near me",
+    "sexy red lip gloss",
+    "sex china",
+    "chin av",
+    "sẽ china",
+    "sextop1",
+    "javhd",
+    "sexviet",
+    "viet69",
+    "clipsex69",
+    "cliphot",
+    "sexnew",
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
     <ProviderRedux>
       <html lang="en">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-37FK94QHGJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-37FK94QHGJ');
+        `}
+        </Script>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased p-2 bg-gray-800`}
         >
