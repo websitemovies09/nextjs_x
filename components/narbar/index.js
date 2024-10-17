@@ -31,7 +31,7 @@ function Narbar() {
                 className={`${
                   type == item.id ? "bg-red-600 rounded" : ""
                 } p-2  text-white cursor-pointer`}
-                href={`/movie/${item?.id}`}
+                href={`/movie/${item?.id}/${item?.slug}`}
               >
                 {item?.title}
               </Link>

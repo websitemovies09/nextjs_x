@@ -19,7 +19,7 @@ export default async function sitemap() {
   let caterogys = [];
   if (caterogys) {
     caterogys = results.map((item) => ({
-      url: `${NEXT_BASE_URL}/movie/${item.id}`,
+      url: `${NEXT_BASE_URL}/movie/${item.id}/${item.slug}`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,

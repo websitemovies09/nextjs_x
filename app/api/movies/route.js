@@ -109,6 +109,7 @@ export async function DELETE(request) {
       return NextResponse.json({ message: "Category not found" }, { status: 404 });
     }
   } catch (err) {
+    console.log(err)
     return NextResponse.error("Error message", 500);
   }
 }
