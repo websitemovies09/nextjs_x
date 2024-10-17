@@ -8,7 +8,7 @@ import { useState } from "react";
 
 
 export default function Home() {
-  const [currentPage, setCurrentPage] = useState( 1);
+  const [currentPage, setCurrentPage] = useState(1);
   const { data, isLoading } = useGetMoviesQuery(currentPage);
 
   function handleNextPage(page) {

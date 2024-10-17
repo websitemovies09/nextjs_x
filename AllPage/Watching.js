@@ -11,7 +11,7 @@ import { useParams } from "next/navigation";
 
 function Watching() {
   const params = useParams();
-  const { data } = useGetMovieDetailQuery(params.id);
+  const { data } = useGetMovieDetailQuery(params.slug);
   const { data: moviesRelate, isLoading } = useGetMoviesByCaterogyQuery({
     type: data?.movies[0]?.caterogy_id,
   });

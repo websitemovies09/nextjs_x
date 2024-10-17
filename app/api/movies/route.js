@@ -55,18 +55,27 @@ export async function GET(request) {
     return NextResponse.error("Error message", 500);
   }
 }
-
+function createSlug(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
 
 export async function POST(request) {
   try {
     const { title, thumbnail, video, caterogy_id,source='main' } = await request.json();
 
     const decoded = authenticateAdmin(request);
-
+    const slug = createSlug(title);
     const [result] = await connection.execute(
-      `INSERT INTO movies (title, thumbnail, video , source, caterogy_id, active,views) 
-       VALUES (?, ?, ?,?, ?, ?,?)`,
-      [title, thumbnail, video ,source, caterogy_id, 1,getRandomNumber(10,50)] 
+      `INSERT INTO movies (title, thumbnail, video , source, caterogy_id, active,views,slug) 
+       VALUES (?, ?, ?,?, ?, ?,?,?)`,
+      [title, thumbnail, video ,source, caterogy_id, 1,getRandomNumber(10,50),slug] 
     );
 
     if (result.affectedRows === 1) {
@@ -104,19 +113,15 @@ export async function DELETE(request) {
   }
 }
 
-
-
-
-
-
 export async function PUT(request) {
   try {
     const { id, title, thumbnail, video, caterogy_id, source } = await request.json();
+    const slug = createSlug(title);
     const [result] = await connection.execute(
       `UPDATE movies 
-       SET title = ?, thumbnail = ?, video = ?, source = ?, caterogy_id = ?, active = ? 
+       SET title = ?, thumbnail = ?, video = ?, source = ?, caterogy_id = ?, active = ? , slug = ?
        WHERE id = ?`,
-      [title, thumbnail, video, source, caterogy_id, 1, id]
+      [title, thumbnail, video, source, caterogy_id, 1,slug, id]
     );
 
     if (result.affectedRows === 1) {

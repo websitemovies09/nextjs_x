@@ -19,10 +19,10 @@ function MoivieItem({ item }) {
   // }, [imageUrl]);
 
   function handloWatchTV() {
-    router.push(`/watch/${item.id}`);
+    router.push(`/watch/${item.slug}`);
     const fetchData = async () => {
       try {
-        const response = await axios.put(`/api/movies/${item.id}`, {
+        const response = await axios.put(`/api/movies/id/${item.id}`, {
           views: 1,
         });
         setData(response.data);

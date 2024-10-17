@@ -47,6 +47,9 @@ function AdminMovie() {
                 ID
               </th>
               <th scope="col" className="px-6 py-3">
+                SLUG
+              </th>
+              <th scope="col" className="px-6 py-3">
                 TITLE
               </th>
               <th scope="col" className="px-6 py-3">
@@ -89,12 +92,14 @@ function AdminMovie() {
                     </span>
                   </td>
                   <td className="px-6 py-4">{item.id}</td>
+                  <td className="px-6 py-4">{item.slug}</td>
                   <th
                     scope="row"
                     className="px-6 py-4 font-medium text-gray-900 dark:text-white ellipsis"
                   >
                     {item.title}
                   </th>
+
                   <td className="px-6 py-4 ellipsis">{item.video}</td>
                   <td className="px-6 py-4 ellipsis">{item.thumbnail}</td>
                   <td className="px-6 py-4 ellipsis">{item.caterogy_id}</td>

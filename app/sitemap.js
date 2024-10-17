@@ -8,7 +8,7 @@ export default async function sitemap() {
   let movie = [];
   if (moviesData) {
     movie = moviesData.map((item) => ({
-      url: `${NEXT_BASE_URL}/watch/${item.id}`,
+      url: `${NEXT_BASE_URL}/watch/${item.slug}`,
       lastModified: item.created_date,
       changeFrequency: "yearly",
       priority: 1,

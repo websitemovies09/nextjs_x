@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic'
 const DynamicComponent  = dynamic(() => import('@/AllPage/Watching'))
 
 export async function generateMetadata({ params }) {
-  const id = params.id;
-  const response = await fetch(`${process.env.NEXT_BASE_URL}/api/movies/${id}`);
+  const slug = params.slug;
+  const response = await fetch(`${process.env.NEXT_BASE_URL}/api/movies/${slug}`);
   const movie = await response.json();
   if (movie) {
     return {
