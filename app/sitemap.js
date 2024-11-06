@@ -1,10 +1,10 @@
 
 
 import connection from "@/lib/db";
-export const revalidate = 30 
+
 export default async function sitemap() {
   let NEXT_BASE_URL ='https://sexnew.xyz'
-  const [moviesData] = await connection.execute(`SELECT * FROM movies LIMIT 50 OFFSET 0`);
+  const [moviesData] = await connection.execute(`SELECT * FROM movies LIMIT 100 OFFSET 0`);
   let movie = [];
   if (moviesData) {
     movie = moviesData.map((item) => ({
