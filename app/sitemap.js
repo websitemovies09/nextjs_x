@@ -26,7 +26,7 @@ export default async function sitemap() {
     }));
   }
 
-  const routes = ["/"].map((route) => ({
+  const routes = [""].map((route) => ({
     url: `${NEXT_BASE_URL}${route}`,
     lastModified: new Date(),
     changeFrequency: "yearly",

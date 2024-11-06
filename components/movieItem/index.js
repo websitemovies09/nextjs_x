@@ -34,7 +34,7 @@ function MoivieItem({ item }) {
   }
   return (
     <div
-      className="bg-gray-700 p-2 rounded cursor-pointer relative"
+      className="bg-gray-700 rounded cursor-pointer relative"
       onClick={handloWatchTV}
     >
       <div className="absolute text-xs top-2 left-2 text-white flex items-center bg-gray-800 bg-opacity-75 px-2 py-1 rounded">
@@ -52,7 +52,7 @@ function MoivieItem({ item }) {
         onError={(e) => {setImageUrl('https://media.discordapp.net/attachments/1291952724505792514/1291961961667366963/23-677x400.jpg?ex=670200d7&is=6700af57&hm=f429036bc151c64d1c92a7fbb3ac65e588b88cdeb77d2e849b8d2c103771c4b8&=&format=webp')}}
       />
 
-      <p className="mt-2 text-white text-sm		line-clamp-1">{item?.title}</p>
+      <p className="p-2 text-white text-sm		line-clamp-1">{item?.title}</p>
     </div>
   );
 }
